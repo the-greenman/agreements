@@ -11,3 +11,13 @@ body {
     background-color: cornsilk;
     padding: 10px;
 }
+
+#meta {
+    padding:40px;
+    font-size: smaller;
+}
+#notes {
+    padding:40px;
+    font-size: smaller;
+    font-style: italic;
+}
