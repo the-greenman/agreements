@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agreements</title>
+
+    <script lang="javascript">
+        const TRELLO_BOARD_ID = "qEEsbwNd";
+
+    </script>
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="trello_simple.js"></script>
+    <script>
+        $(document).ready(function() {
+            render_agreements(TRELLO_BOARD_ID,"#agreements", ["ABOUT"]);
+        });
+
+    </script>
+    <link rel="stylesheet" href="agreements.css">
+
+</head>
+<body>
+<div id="agreements-wrap">
+    <div id="agreements">
+
+
+
+    </div>
+</div>
+</body>
+</html>
