@@ -42,5 +42,5 @@ function render_list(list, locator) {
 }
 
 function render_card(card, locator) {
-    $(locator).append('<div class="card"><h3 class="name">'+ card.name +'</h3><div class="desc">'+ card.desc +'</div></div>');
+    $(locator).append('<div class="card"><h3 class="name">'+ card.name +'</h3><div class="desc">'+ card.desc.replace(/(?:\r\n|\r|\n)/g, '<br>') +'</pre></div></div>');
 }

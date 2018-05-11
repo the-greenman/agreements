@@ -6,8 +6,19 @@
 
     <script lang="javascript">
         const DEFAULT_TRELLO_BOARD_ID = "qEEsbwNd";
+        const DEFAULT_IGNORE_LIST = ["ABOUT"];
+
+
         var url = new URL(window.location.href);
         var trello_board_id = url.searchParams.get("board");
+        var ignore_list = url.searchParams.get("ignore");
+        if (ignore_list) {
+            ignore_list = ignore_list.split(",");
+        } else {
+            ignore_list = DEFAULT_IGNORE_LIST;
+        }
+
+        // set up defaults
         if (!trello_board_id) trello_board_id = DEFAULT_TRELLO_BOARD_ID;
 
     </script>
@@ -19,7 +30,7 @@
     <script src="trello_simple.js"></script>
     <script>
         $(document).ready(function() {
-            render_agreements(trello_board_id,"#agreements", ["ABOUT"]);
+            render_agreements(trello_board_id,"#agreements", ignore_list );
         });
 
     </script>
