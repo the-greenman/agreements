@@ -5,7 +5,10 @@
     <title>Agreements</title>
 
     <script lang="javascript">
-        const TRELLO_BOARD_ID = "qEEsbwNd";
+        const DEFAULT_TRELLO_BOARD_ID = "qEEsbwNd";
+        var url = new URL(window.location.href);
+        var trello_board_id = url.searchParams.get("board");
+        if (!trello_board_id) trello_board_id = DEFAULT_TRELLO_BOARD_ID;
 
     </script>
 
@@ -16,7 +19,7 @@
     <script src="trello_simple.js"></script>
     <script>
         $(document).ready(function() {
-            render_agreements(TRELLO_BOARD_ID,"#agreements", ["ABOUT"]);
+            render_agreements(trello_board_id,"#agreements", ["ABOUT"]);
         });
 
     </script>
@@ -30,7 +33,7 @@
     </div>
 </div>
 <div id="meta">
-    <script> document.write("<A href='http://trello.com/b/"+TRELLO_BOARD_ID+"'>Source Trello Board</A>");
+    <script> document.write("<A href='http://trello.com/b/"+trello_board_id+"'>Source Trello Board</A>");
     </script>
 </div>
 <div id="notes">
