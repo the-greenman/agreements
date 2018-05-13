@@ -18,12 +18,15 @@ function render_agreements(board_id, locator, ignoreLists){
             board[list.id] = {name: list.name, id: list.id, cards: []}
         });
         trello_data.cards.forEach(function(card){
-           board[card.idList]["cards"].push({
-               id: card.id,
-               name: card.name,
-               desc: card.desc
-           })
-
+          if (!card.closed) {
+              board[card.idList]["cards"].push({
+                  id: card.id,
+                  name: card.name,
+                  desc: card.desc,
+                  labels: card.labels,
+                  attachments: card.attachments
+              })
+          };
         });
         $("<H1>" + board.name + "</H1>").appendTo(locator);
         board.lists.forEach(function(listId){
@@ -42,5 +45,16 @@ function render_list(list, locator) {
 }
 
 function render_card(card, locator) {
-    $(locator).append('<div class="card"><h3 class="name">'+ card.name +'</h3><div class="desc">'+ card.desc.replace(/(?:\r\n|\r|\n)/g, '<br>') +'</pre></div></div>');
+    var converter = new showdown.Converter();
+
+    var html = '<div class="card-content"><h3 class="name">'+ card.name +'</h3><div class="desc">'+ converter.makeHtml(card.desc) +'</pre></div></div>';
+
+    // render labels
+    card.labels.forEach(function(label){
+        html = "<div style='border-color:"+label.color+"' class='label label-"+label.color.replace(/\W/g,"-")+"'>"+html+"</div>";
+
+    });
+
+    html = '<div class="card">' + html + '<div>';
+    $(locator).append(html);
 }

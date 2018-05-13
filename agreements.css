@@ -1,17 +1,26 @@
 body {
     font-family: sans-serif;
     margin: auto 20%;
+    background-color: aliceblue;
+
 }
 
 #agreements-wrap {
+    padding: 3px;
+    background-color:lightgray;
+
 
 }
 
 .card {
-    background-color: cornsilk;
     padding: 10px;
+    background-color: white;
+
 }
 
+.card-content {
+    padding:4px;
+}
 #meta {
     padding:40px;
     font-size: smaller;
@@ -21,3 +30,9 @@ body {
     font-size: smaller;
     font-style: italic;
 }
+
+.label {
+    border-width: 1px;
+    border-style: solid;
+}
+
