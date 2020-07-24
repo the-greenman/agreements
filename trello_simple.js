@@ -49,7 +49,7 @@ function render_card(card, locator) {
     var converter = new showdown.Converter();
     // hide names prefixed with "--"
     var name = '<h3 class="name">'+ card.name +'</h3>';
-    if (card.name.substring(0,2)) == "--") name = ''; 
+    if (card.name.substring(0,2) == "--") name = ''; 
     var html = '<div class="card-content">'+ name +'<div class="desc">'+ converter.makeHtml(card.desc) +'</pre></div></div>';
 
     // render labels
