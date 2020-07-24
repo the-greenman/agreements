@@ -12,6 +12,7 @@ function render_agreements(board_id, locator, ignoreLists){
         board.name = trello_data.name;
         trello_data.lists.forEach(function(list){
             // don't add ignored lists to the index
+            console.log(list)
             if (ignoreLists.indexOf(list.id) == -1 && ignoreLists.indexOf(list.name)==-1 && !list.closed) {
                 board.lists.push(list.id);
             }
